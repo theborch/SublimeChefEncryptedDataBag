@@ -7,8 +7,11 @@ Sublime Text 2/3 Plugin to encrypt/decrypt [chef](https://www.chef.io/chef/) enc
 - ruby >= 1.9
 - chef gem 11.12.4 tested
 
-You can specify ruby path.
-Please copy `ChefEncryptedDataBag.sublime-settings` to `Packages/User/ChefEncryptedDataBag.sublime-settings` and edit it.
+# Settings
+
+Open menu item `[Sublime Text 2/3]-[Preferences]-[Package Settings]-[ChefEncryptedDataBag]-[Settings - User]`.
+
+To see default settings, open menu item `[Sublime Text 2/3]-[Preferences]-[Package Settings]-[ChefEncryptedDataBag]-[Settings - Default]`.
 
 # Usage
 
