@@ -1,0 +1,10 @@
+[
+  {
+    "caption": "Chef: Encrypt data bag item",
+    "command": "encrypt_data_bag_item"
+  },
+  {
+    "caption": "Chef: Decrypt data bag item",
+    "command": "decrypt_data_bag_item"
+  }
+]
