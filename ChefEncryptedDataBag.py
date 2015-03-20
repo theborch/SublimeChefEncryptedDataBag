@@ -1,7 +1,7 @@
 import sublime, sublime_plugin, os, subprocess
 PLUGIN_DIR = os.path.abspath(os.path.dirname(__file__))
 
-class ProcessDataBagItemCommand(sublime_plugin.TextCommand):
+class ProcessDataBagItemMixin(object):
     def str(self, s):
         try:
             # Python 2
@@ -48,10 +48,10 @@ class ProcessDataBagItemCommand(sublime_plugin.TextCommand):
             raise
         return self.str(stdout)
 
-class EncryptDataBagItemCommand(ProcessDataBagItemCommand):
+class EncryptDataBagItemCommand(ProcessDataBagItemMixin, sublime_plugin.TextCommand):
     def process(self, data, secret):
         return self.run_script("chef_encrypt_databag_item.rb", data, secret)
 
-class DecryptDataBagItemCommand(ProcessDataBagItemCommand):
+class DecryptDataBagItemCommand(ProcessDataBagItemMixin, sublime_plugin.TextCommand):
     def process(self, data, secret):
         return self.run_script("chef_decrypt_databag_item.rb", data, secret)
