@@ -35,16 +35,11 @@ class ProcessDataBagItemCommand(sublime_plugin.TextCommand):
     def run_script(self, script_name, data, secret):
         settings = sublime.load_settings("ChefEncryptedDataBag.sublime-settings")
         ruby = settings.get("ruby", "ruby")
-        # env = self.view.settings().get("env") or os.environ
-        print(settings)
 
-        # if "RUBYOPT" not in env:
-        #     env["RUBYOPT"] = "--encoding utf-8"
         script_path = PLUGIN_DIR + "/" + script_name
         cmd = [ruby, "--encoding", "utf-8", script_path, secret]
 
         proc = subprocess.Popen(cmd, stdin = subprocess.PIPE, stdout = subprocess.PIPE, stderr = subprocess.PIPE)
-        # proc = subprocess.Popen(cmd, env = env, stdin = subprocess.PIPE, stdout = subprocess.PIPE, stderr = subprocess.PIPE)
         stdout, stderr = proc.communicate(data.encode("utf_8"))
 
         returncode = proc.wait()
