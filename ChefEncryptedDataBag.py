@@ -12,7 +12,7 @@ class ProcessDataBagItemCommand(sublime_plugin.TextCommand):
 
     def run(self, edit):
         repository_root = self.view.window().folders()[0]
-        secret_file = "%s/data_bag_key" % repository_root
+        secret_file = os.path.join(repository_root, "data_bag_key")
 
         # Read data_bag_key
         if not os.path.exists(secret_file):
@@ -36,7 +36,7 @@ class ProcessDataBagItemCommand(sublime_plugin.TextCommand):
         settings = sublime.load_settings("ChefEncryptedDataBag.sublime-settings")
         ruby = settings.get("ruby", "ruby")
 
-        script_path = PLUGIN_DIR + "/" + script_name
+        script_path = os.path.join(PLUGIN_DIR, script_name)
         cmd = [ruby, "--encoding", "utf-8", script_path, secret]
 
         proc = subprocess.Popen(cmd, stdin = subprocess.PIPE, stdout = subprocess.PIPE, stderr = subprocess.PIPE)
