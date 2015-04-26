@@ -19,6 +19,11 @@ To see default settings, open menu item `[Sublime Text 2/3]-[Preferences]-[Packa
 2. Open encrypted/plain data bag item (JSON).
 3. Open command palette (`command + shift + p`) and run `Chef: Encrypt/Decrypt data bag item`
 
+Alternatively: 
+
+1. Set encrypted_databag_secret in your Settings to point to your data bag secret.
+2. Open command palette (`command + shift + p`) and run `Chef: Encrypt/Decrypt data bag item
+
 # License
 
 MIT License.
