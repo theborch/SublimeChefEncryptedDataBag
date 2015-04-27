@@ -1,4 +1,6 @@
 {
   // Ruby executable path
-  // "ruby": "/Users/you/.anyenv/envs/rbenv/shims/ruby"
+  // "ruby": "/Users/you/.anyenv/envs/rbenv/shims/ruby",
+  // Path to encrypted data bag secret
+  // "encrypted_databag_secret": "/Users/you/.chef/encrypted_data_bag_secret"
 }

@@ -16,8 +16,8 @@ class ProcessDataBagItemMixin(object):
 
         # Read data_bag_key
         if not os.path.exists(secret_file):
-          sublime.error_message("data_bag_key not found:\n%s" % secret_file)
-          return
+          settings = sublime.load_settings("ChefEncryptedDataBag.sublime-settings")
+          secret_file = settings.get("encrypted_databag_secret", "encrypted_databag_secret")
         with open(secret_file) as f:
           secret = f.read()
 
